@@ -10,7 +10,7 @@ blocks:
       jobs:
         - name: docker build
           commands:
-            - checkout
             - 'docker login -u adlerspj -p 8f733215-22ae-4c8b-a90d-0043cb2c48a6 https://index.docker.io/v1/adlerspj'
-            - 'docker pull https://index.docker.io/v1/adlerspj/semaphore-demo-cicd-kubernetes:latest || true docker build --cache-from https://index.docker.io/v1/adlerspj/seamphore-demo-cicd-kubernetes:latest -t https://index.docker.io/v1/adlerspj/semaphore-demo-cicd-kubernetes:$SEMAPHORE_WORKFLOW_ID .'
+            - 'docker pull https://index.docker.io/v1/adlerspj/semaphore-demo-cicd-kubernetes:latest || true '
+            - 'docker build --cache-from https://index.docker.io/v1/adlerspj/seamphore-demo-cicd-kubernetes:latest -t https://index.docker.io/v1/adlerspj/semaphore-demo-cicd-kubernetes:$SEMAPHORE_WORKFLOW_ID .'
             - 'docker push https://index.docker.io/v1/adlerspj/semaphore-demo-cicd-kubernetes:$SEMAPHORE_WORKFLOW_ID'
